@@ -1,0 +1,14 @@
+[Unit]
+Description={{AGENT_NAME}} Telegram Bridge
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory={{WORKSPACE_PATH}}/.bot
+ExecStart={{WORKSPACE_PATH}}/.bot/.venv/bin/python3 {{WORKSPACE_PATH}}/.bot/bridge.py
+Restart=always
+RestartSec=10
+Environment=PATH={{WORKSPACE_PATH}}/.bot/.venv/bin:/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=default.target
