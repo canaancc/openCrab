@@ -113,6 +113,8 @@ After collecting all answers:
   ```
 - Fill template variables from user's answers, do NOT leave any `{{placeholders}}`
 - `{{AGENT_ID}}` = lowercase agent name (e.g., "crab", "sentinel")
+- `{{HOME}}` = user's home directory (e.g., "/Users/username" or "/home/username")
+- `{{USER_NICKNAME}}` = how the agent calls the user (from Phase 1 Q5, remove line if skipped)
 - Memory section is always included
 - Self-improvement section is always included (lessons.md + Gotchas refinement loop)
 - Gotchas section in CLAUDE.md: auto-refined from lessons.md when same error type ≥3 times. This ensures recurring mistakes become permanent behavioral rules without manual intervention
