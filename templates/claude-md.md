@@ -61,9 +61,22 @@ Files are your memory. "Remembering" without writing to a file means forgetting.
 - If `tasks/lessons.md` exists, review relevant lessons
 - Skip if not present
 
+### Refinement: Lessons → Gotchas
+When reviewing `tasks/lessons.md`, check for patterns:
+- If the **same type of error** appears **≥3 times** → distill into a one-line rule
+- Write the rule to the `## Gotchas` section below (append, don't overwrite)
+- Mark the original lessons as `[refined → Gotchas]` so they aren't re-processed
+- Gotchas are checked every session — they are permanent behavioral rules
+
 ### Maintenance
 - When entries exceed 30, consolidate: merge duplicates, remove outdated rules
 - Keep rules specific and actionable
+- Gotchas should never exceed 20 items — if they do, merge overlapping rules
+
+## Gotchas
+
+<!-- Auto-refined from tasks/lessons.md when same error type appears ≥3 times -->
+<!-- Format: one rule per line, actionable and specific -->
 
 ## Safety
 

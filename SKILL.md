@@ -23,24 +23,25 @@ Ask ONE question at a time. Wait for the answer before proceeding.
 2. **Role**: "Describe in one sentence what this agent does."
 3. **Vibe**: "What's the personality? (e.g., strict security expert / friendly assistant / silent efficient executor)"
 4. **Language**: "What language should the agent use? (e.g., English / 中文 / mixed)"
-5. **Workspace**: "Where should the workspace live? (e.g., ~/sentinel)"
+5. **Nickname**: "How should the agent call you? (e.g., Boss, Captain, your name — or skip for no nickname)"
+6. **Workspace**: "Where should the workspace live? (e.g., ~/sentinel)"
 
 ### Phase 2: Capabilities (required)
 
-6. **Primary tools**: "What tools does this agent need? Options:
+7. **Primary tools**: "What tools does this agent need? Options:
    - File ops (Read/Write/Edit/Glob/Grep)
    - Shell (Bash)
    - Web (WebSearch/WebFetch)
    - All of the above (default)"
-7. **Domain**: "Any specific domain knowledge? (e.g., crypto/DeFi, web dev, data analysis — or skip)"
+8. **Domain**: "Any specific domain knowledge? (e.g., crypto/DeFi, web dev, data analysis — or skip)"
 
 ### Phase 3: Safety (required)
 
-8. **Boundaries**: "What should this agent NEVER do? (e.g., never delete files, never execute transfers — or use defaults)"
+9. **Boundaries**: "What should this agent NEVER do? (e.g., never delete files, never execute transfers — or use defaults)"
 
 ### Phase 4: Bridge (optional)
 
-9. **Telegram**: "Want a Telegram bot for this agent? (y/n)"
+10. **Telegram**: "Want a Telegram bot for this agent? (y/n)"
    - If yes: "Provide bot token (from @BotFather):"
    - Then: "Your Telegram user ID (for access control):"
    - If no: skip, tell user they can add it later
@@ -113,10 +114,13 @@ After collecting all answers:
 - Fill template variables from user's answers, do NOT leave any `{{placeholders}}`
 - `{{AGENT_ID}}` = lowercase agent name (e.g., "crab", "sentinel")
 - Memory section is always included
-- Self-improvement section is always included
+- Self-improvement section is always included (lessons.md + Gotchas refinement loop)
+- Gotchas section in CLAUDE.md: auto-refined from lessons.md when same error type ≥3 times. This ensures recurring mistakes become permanent behavioral rules without manual intervention
 - Safety section uses user's boundaries + sensible defaults
 - Keep CLAUDE.md under 150 lines
 - Use user's chosen language for CLAUDE.md content
+- `{{USER_NICKNAME}}` in bridge.py: fill with user's answer from Phase 1 Q5. If skipped, remove the "Call the user..." line
+- Bridge must respond in the same language the user writes in — if they send English, reply in English; if Chinese, reply in Chinese
 - On macOS: use launchd; on Linux: use systemd
 - Add `.bot/` to `.gitignore` if workspace is a git repo (contains sensitive .env)
 
